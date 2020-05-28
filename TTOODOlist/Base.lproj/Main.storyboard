@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--LIST TODO-->
+        <!--قائمه المهام-->
         <scene sceneID="hk4-I9-c11">
             <objects>
                 <tableViewController id="oly-7Y-plF" customClass="TODOTabelViewController" customModule="TTOODOlist" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,7 +32,14 @@
                             <outlet property="delegate" destination="oly-7Y-plF" id="5Ra-Af-0Me"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="LIST TODO" id="4pA-Z8-NqZ"/>
+                    <navigationItem key="navigationItem" title="قائمه المهام" id="4pA-Z8-NqZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KAl-7c-kSI">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addbuttonPressed:" destination="oly-7Y-plF" id="79k-Nn-O2k"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDH-FG-lqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
