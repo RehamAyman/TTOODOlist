@@ -9,11 +9,14 @@
 import UIKit
 
 class TODOTabelViewController: UITableViewController{
+    let defaults = UserDefaults.standard
     
     var itemarray = [ "item1" , "item 2 " , "item 3 " , "item4 "]
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        if let itemsdef = UserDefaults.standard.array(forKey: "ItemsKeyStorage") as? [String] {
+            itemarray = itemsdef
+        }
     }
     
     
@@ -45,6 +48,7 @@ class TODOTabelViewController: UITableViewController{
         let action = UIAlertAction(title:"تأكيد ", style: .default) { (action) in
             // what will happend when we click add button
             self.itemarray.append(textfield.text!)
+            self.defaults.set(self.itemarray, forKey: "ItemsKeyStorage")
             self.tableView.reloadData()
            
         }
