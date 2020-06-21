@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Item" representedClassName=".Item" syncable="YES" codeGenerationType="class">
+        <attribute name="done" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="itemTitle" attributeType="String" syncable="YES"/>
+        <relationship name="mainitem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Main" inverseName="items" inverseEntity="Main" syncable="YES"/>
+    </entity>
+    <entity name="Main" representedClassName="Main" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="mainitem" inverseEntity="Item" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Item" positionX="12554.484375" positionY="-2753.27734375" width="128" height="88"/>
+        <element name="Main" positionX="12274.2421875" positionY="-2995.015625" width="128" height="73"/>
+    </elements>
+</model>

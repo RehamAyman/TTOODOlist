@@ -7,19 +7,28 @@
 //
 
 import UIKit
+import CoreData
 
 class TODOTabelViewController: UITableViewController{
     
+    let ContainerContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    let DataFileBath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("itemsData.plist")
+    
+    var selectedMainItem : Main? {
+        didSet {
+            loadData()
+        }
+    }
+    
+     //    let DataFileBath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("itemsData.plist")
     
     
-    var itemarray = [itemModel]()
+    var itemarray = [Item]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
-        self.loadData()
+         //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+       
         
     }
     
@@ -31,14 +40,13 @@ class TODOTabelViewController: UITableViewController{
     }
     
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellitem = itemarray[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "TODOITEMCELL", for: indexPath)
         cell.textLabel?.text = cellitem.itemTitle
         
         // value = condition? trueValue : FalseValue
-        cell.accessoryType = cellitem.doneOrNot ? .checkmark : .none
+        cell.accessoryType = cellitem.done ? .checkmark : .none
         
         
         return cell
@@ -52,7 +60,7 @@ class TODOTabelViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(itemarray[indexPath.row])
         
-        itemarray[indexPath.row].doneOrNot = !itemarray[indexPath.row].doneOrNot
+        itemarray[indexPath.row].done = !itemarray[indexPath.row].done
         saveData()
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -60,14 +68,21 @@ class TODOTabelViewController: UITableViewController{
         
     }
     
+    
+    
+    
+    
+    
     @IBAction func addbuttonPressed(_ sender: UIBarButtonItem) {
         var textfield = UITextField()
         
-        let alert = UIAlertController(title: "إضافه قائمة مهام جديده ", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "إضافه مهمه جديده ", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title:"تأكيد ", style: .default) { (action) in
             // what will happend when we click add button
-            let newitem = itemModel()
+            let newitem = Item(context: self.ContainerContext)
             newitem.itemTitle = textfield.text!
+            newitem.done = false
+            newitem.mainitem = self.selectedMainItem
             self.itemarray.append(newitem)
             //self.defaults.set(self.itemarray, forKey: "ItemsKeyStorage")
             self.saveData()
@@ -75,7 +90,7 @@ class TODOTabelViewController: UITableViewController{
            
         }
         alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "إسم القائمه الجديده"
+            alertTextField.placeholder = "اسم المهمه ... "
             textfield = alertTextField
         }
         
@@ -85,53 +100,71 @@ class TODOTabelViewController: UITableViewController{
     
     
     
-    // save using encoding
+    
+    //MARK: - save data
     func saveData () {
-        let encoder = PropertyListEncoder()
+    
         
         do {
-            let data = try encoder.encode(itemarray)
-            try data.write(to: DataFileBath!)
-            tableView.reloadData()
+           try ContainerContext.save()
+           
         
         } catch {
-           print("error encoding with saving data  ,\(error)")
+           print("error saving data  ,\(error)")
         }
-        
+         self.tableView.reloadData()
         
         
     }
-    func loadData () {
-        if let data = try? Data(contentsOf: DataFileBath!) {
-            let decoder = PropertyListDecoder()
-            
-            do {
-                itemarray = try decoder.decode([itemModel].self, from: data)
-                
-            }catch {
-                print("error with decoding data ,\(error) ")
-            }
-            
+    //MARK: - load data ?????????????????????????
+    func loadData (with request : NSFetchRequest <Item> = Item.fetchRequest() , predicate : NSPredicate? = nil ){
+        
+        
+        
+        let selMainItempredicate = NSPredicate(format: "mainitem.name MATCHES %@", selectedMainItem!.name!)
+        
+        if let additionalpredecaite = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [selMainItempredicate , additionalpredecaite])
+        } else {
+            request.predicate = selMainItempredicate
         }
+        //let comppredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate,selMainItempredicate])
+        //request.predicate = comppredicate
+        do {
+            try itemarray = ContainerContext.fetch(request)
+        } catch {
+            print("error with loading data .. ")
+        }
+        self.tableView.reloadData()
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     
     
 }
 
+//MARK: - search bar methods
+extension TODOTabelViewController : UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let req : NSFetchRequest<Item> = Item.fetchRequest()
+        //req.predicate = NSPredicate(format: "itemTitle CONTAINS[cd] %@", searchBar.text!)
+         let predicate = NSPredicate(format: "itemTitle CONTAINS[cd] %@", searchBar.text!)
+        req.sortDescriptors = [NSSortDescriptor(key: "itemTitle", ascending: true)]
+        
+        loadData(with: req, predicate: predicate)
+        
+        
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+       if searchBar.text?.count == 0 {
+        
+        DispatchQueue.main.async {
+            searchBar.resignFirstResponder()
+        }
+            
+            self.loadData()
+        }
+    }
+    
+    
+}
