@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7CD2DF71DC67555BD30951F9 /* Pods_TTOODOlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 052CEA5998040716985FEC1B /* Pods_TTOODOlist.framework */; };
+		CC671C02B45BCCE9D70CC28C /* Pods_TTOODOlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4694C82EC75C5D0B867885D /* Pods_TTOODOlist.framework */; };
 		CE04210424A1CA52009CFE52 /* item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE04210324A1CA52009CFE52 /* item.swift */; };
 		CE04210624A1CA78009CFE52 /* mainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE04210524A1CA78009CFE52 /* mainItem.swift */; };
 		CE6EC17C247F570700B8D9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EC17B247F570700B8D9A7 /* AppDelegate.swift */; };
@@ -20,9 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		052CEA5998040716985FEC1B /* Pods_TTOODOlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTOODOlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E16C842EBCF76FB41FBE649 /* Pods-TTOODOlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTOODOlist.release.xcconfig"; path = "Target Support Files/Pods-TTOODOlist/Pods-TTOODOlist.release.xcconfig"; sourceTree = "<group>"; };
-		A102F780A8EAE4E71983A251 /* Pods-TTOODOlist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTOODOlist.debug.xcconfig"; path = "Target Support Files/Pods-TTOODOlist/Pods-TTOODOlist.debug.xcconfig"; sourceTree = "<group>"; };
+		33E7E86642442490EFFECFA4 /* Pods-TTOODOlist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTOODOlist.debug.xcconfig"; path = "Target Support Files/Pods-TTOODOlist/Pods-TTOODOlist.debug.xcconfig"; sourceTree = "<group>"; };
+		5E59EBAAC95047186C0EE046 /* Pods-TTOODOlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTOODOlist.release.xcconfig"; path = "Target Support Files/Pods-TTOODOlist/Pods-TTOODOlist.release.xcconfig"; sourceTree = "<group>"; };
+		C4694C82EC75C5D0B867885D /* Pods_TTOODOlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTOODOlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE04210324A1CA52009CFE52 /* item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = item.swift; sourceTree = "<group>"; };
 		CE04210524A1CA78009CFE52 /* mainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainItem.swift; sourceTree = "<group>"; };
 		CE6EC178247F570700B8D9A7 /* TTOODOlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTOODOlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,18 +41,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CD2DF71DC67555BD30951F9 /* Pods_TTOODOlist.framework in Frameworks */,
+				CC671C02B45BCCE9D70CC28C /* Pods_TTOODOlist.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6317C13E104CF55C73AF1A8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4694C82EC75C5D0B867885D /* Pods_TTOODOlist.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		67C08D6AA649B192194ED32B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A102F780A8EAE4E71983A251 /* Pods-TTOODOlist.debug.xcconfig */,
-				3E16C842EBCF76FB41FBE649 /* Pods-TTOODOlist.release.xcconfig */,
+				33E7E86642442490EFFECFA4 /* Pods-TTOODOlist.debug.xcconfig */,
+				5E59EBAAC95047186C0EE046 /* Pods-TTOODOlist.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -63,7 +71,7 @@
 				CE6EC17A247F570700B8D9A7 /* TTOODOlist */,
 				CE6EC179247F570700B8D9A7 /* Products */,
 				67C08D6AA649B192194ED32B /* Pods */,
-				D2675108006CC1A6AFABE906 /* Frameworks */,
+				6317C13E104CF55C73AF1A8A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,14 +132,6 @@
 			path = "supportingFiels ";
 			sourceTree = "<group>";
 		};
-		D2675108006CC1A6AFABE906 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				052CEA5998040716985FEC1B /* Pods_TTOODOlist.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,11 +139,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE6EC18A247F570900B8D9A7 /* Build configuration list for PBXNativeTarget "TTOODOlist" */;
 			buildPhases = (
-				83A47F213300EB91F9D3C8F1 /* [CP] Check Pods Manifest.lock */,
+				EF7E80CD90FB0574103434BE /* [CP] Check Pods Manifest.lock */,
 				CE6EC174247F570700B8D9A7 /* Sources */,
 				CE6EC175247F570700B8D9A7 /* Frameworks */,
 				CE6EC176247F570700B8D9A7 /* Resources */,
-				47CF793923F6E3FE8853EB3F /* [CP] Embed Pods Frameworks */,
+				A437FC34A4DCF7507B592292 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,7 +201,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		47CF793923F6E3FE8853EB3F /* [CP] Embed Pods Frameworks */ = {
+		A437FC34A4DCF7507B592292 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -218,7 +218,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TTOODOlist/Pods-TTOODOlist-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		83A47F213300EB91F9D3C8F1 /* [CP] Check Pods Manifest.lock */ = {
+		EF7E80CD90FB0574103434BE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -396,7 +396,7 @@
 		};
 		CE6EC18B247F570900B8D9A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A102F780A8EAE4E71983A251 /* Pods-TTOODOlist.debug.xcconfig */;
+			baseConfigurationReference = 33E7E86642442490EFFECFA4 /* Pods-TTOODOlist.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -415,7 +415,7 @@
 		};
 		CE6EC18C247F570900B8D9A7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E16C842EBCF76FB41FBE649 /* Pods-TTOODOlist.release.xcconfig */;
+			baseConfigurationReference = 5E59EBAAC95047186C0EE046 /* Pods-TTOODOlist.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

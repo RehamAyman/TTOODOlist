@@ -24,7 +24,7 @@ class mainTableViewController: swipeTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 80
+        
         
               loadData()
        

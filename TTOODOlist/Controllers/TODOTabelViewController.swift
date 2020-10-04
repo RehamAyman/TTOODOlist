@@ -25,6 +25,7 @@ class TODOTabelViewController: swipeTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
          
     }
     
@@ -38,7 +39,7 @@ class TODOTabelViewController: swipeTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TODOITEMCELL", for: indexPath)
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         if let cellitem = AllItems?[indexPath.row]{
             
