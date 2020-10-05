@@ -26,10 +26,28 @@ class TODOTabelViewController: swipeTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
          tableView.separatorStyle = .none
         
     }
+    @IBOutlet weak var searchbar: UISearchBar!
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let colorhex = selectedMainItem?.color {
+            
+            title = selectedMainItem!.name
+            guard let navbar = navigationController?.navigationBar else {
+                fatalError("error with nav bar ")
+            }
+            if let navbarcolor = UIColor(hexString: colorhex){
+                navbar.barTintColor = navbarcolor
+                navbar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : ContrastColorOf(navbarcolor, returnFlat: true)]
+                searchbar.barTintColor = navbarcolor
+            }
+//            navbar.barTintColor = UIColor(hexString: colorhex)
+//            searchbar.barTintColor = UIColor(hexString: colorhex)
+        }
+    }
     
     
     // tabel view functions

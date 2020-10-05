@@ -89,6 +89,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchbar" destination="Ben-Al-0fc" id="UED-l2-wwi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDH-FG-lqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,31 +108,32 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="jwW-Md-a5J">
                                 <rect key="frame" x="20" y="120" width="280" height="378"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgv-gg-Uxq">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="choose your language .." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgv-gg-Uxq">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="59.5"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.13402324909999999" green="0.70825284720000004" blue="0.2436958551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8p-uL-oh6">
                                         <rect key="frame" x="0.0" y="159.5" width="280" height="59"/>
-                                        <color key="backgroundColor" red="0.9595913290977478" green="0.48039007351416929" blue="0.59037385745619231" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button">
+                                        <color key="backgroundColor" red="0.13300006127096223" green="0.70895681133125033" blue="0.24154516156994146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="العربيه">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vi-If-sAG">
                                         <rect key="frame" x="0.0" y="318.5" width="280" height="59.5"/>
-                                        <color key="backgroundColor" red="0.96133321523666382" green="0.47673439979553223" blue="0.59300971031188965" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button">
+                                        <color key="backgroundColor" red="0.13402324914932251" green="0.70825284719467163" blue="0.24369585514068604" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="English">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" red="0.13402324909999999" green="0.70825284720000004" blue="0.2436958551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.96078431372549022" green="0.1764705882352941" blue="0.19215686274509802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.099238313734531403" green="0.45929861068725586" blue="0.10326295346021652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="AiV-9H-gtI" firstAttribute="trailing" secondItem="jwW-Md-a5J" secondAttribute="trailing" constant="20" id="3xF-iO-gGo"/>
                             <constraint firstItem="AiV-9H-gtI" firstAttribute="bottom" secondItem="jwW-Md-a5J" secondAttribute="bottom" constant="70" id="7U5-DZ-8rs"/>
@@ -148,12 +152,12 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0d-GP-zAh" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BRg-Rf-v4D">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="BRg-Rf-v4D">
+                        <rect key="frame" x="0.0" y="20" width="320" height="91"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.99120336771011353" green="0.20799130201339722" blue="0.22359687089920044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="1" green="0.084033275678245811" blue="0.098435308241652364" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.0012005632164968809" green="0.42281105830710664" blue="0.0018627831421976721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="20"/>
                         </textAttributes>
