@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 class MainItem : Object  {
    @objc dynamic var name : String = ""
+   @objc dynamic var color : String = ""
     
     // relationship with items
     

@@ -59,7 +59,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="Ben-Al-0fc">
-                            <rect key="frame" x="0.0" y="0.0" width="226" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -129,7 +129,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.9595913290977478" green="0.17520761489868164" blue="0.19396910071372986" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.1764705882352941" blue="0.19215686274509802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="AiV-9H-gtI" firstAttribute="trailing" secondItem="jwW-Md-a5J" secondAttribute="trailing" constant="20" id="3xF-iO-gGo"/>
                             <constraint firstItem="AiV-9H-gtI" firstAttribute="bottom" secondItem="jwW-Md-a5J" secondAttribute="bottom" constant="70" id="7U5-DZ-8rs"/>

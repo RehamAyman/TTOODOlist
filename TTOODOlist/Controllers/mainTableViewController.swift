@@ -7,7 +7,7 @@
 
 import UIKit
 import RealmSwift
-
+import ChameleonFramework
 
 
 
@@ -27,7 +27,7 @@ class mainTableViewController: swipeTableViewController {
         
         
               loadData()
-       
+       tableView.separatorStyle = .none
     }
     
     
@@ -45,6 +45,10 @@ class mainTableViewController: swipeTableViewController {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         cell.textLabel?.text = MainItemArray?[indexPath.row].name ?? "no items added ..  "
         
+       
+        
+        cell.backgroundColor = UIColor(hexString: MainItemArray?[indexPath.row].color ?? "F52D31")
+        cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor!, returnFlat: true)
         return cell
     }
     
@@ -78,6 +82,7 @@ class mainTableViewController: swipeTableViewController {
             
             let newitem = MainItem()
             newitem.name = textfield.text!
+            newitem.color = UIColor.randomFlat.hexValue()
             self.saveData(mainitem: newitem)
             
      

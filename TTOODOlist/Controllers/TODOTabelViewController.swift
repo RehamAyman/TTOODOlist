@@ -8,7 +8,7 @@
 
 import UIKit
 import RealmSwift
-
+import ChameleonFramework
 class TODOTabelViewController: swipeTableViewController {
     
     let realm = try! Realm()
@@ -26,7 +26,8 @@ class TODOTabelViewController: swipeTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         
+         tableView.separatorStyle = .none
+        
     }
     
     
@@ -44,11 +45,16 @@ class TODOTabelViewController: swipeTableViewController {
         if let cellitem = AllItems?[indexPath.row]{
             
             cell.textLabel?.text = cellitem.itemTitle
+            if let color = UIColor(hexString: selectedMainItem!.color)?.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(AllItems!.count)) {
+                cell.backgroundColor = color
+                cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
+                
+            }
             
             cell.accessoryType = cellitem.done ? .checkmark : .none
             
         } else {
-            cell.textLabel?.textColor = UIColor.red
+            
             cell.textLabel?.text = "No Items Added Yet .. "
         }
        
