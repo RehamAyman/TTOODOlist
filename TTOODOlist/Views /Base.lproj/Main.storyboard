@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q0d-GP-zAh">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LzK-Yc-t4p">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!-- MAIN LIST-->
+        <!--Main Table View Controller-->
         <scene sceneID="1c3-4N-c0J">
             <objects>
                 <tableViewController id="sjh-T9-u9r" customClass="mainTableViewController" customModule="TTOODOlist" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,9 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="cBs-ix-iiz" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cBs-ix-iiz" id="bMn-2n-IAU">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -33,13 +32,25 @@
                             <outlet property="delegate" destination="sjh-T9-u9r" id="5Xt-in-SAF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title=" MAIN LIST" id="80I-fu-UmY">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PGL-yd-oQr">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="addbutton:" destination="sjh-T9-u9r" id="ZIn-VA-WkF"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" id="80I-fu-UmY">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="PGL-yd-oQr">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="addbutton:" destination="sjh-T9-u9r" id="ZIn-VA-WkF"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="AR" id="pE3-1H-KmO">
+                                <connections>
+                                    <action selector="arbarbutton:" destination="sjh-T9-u9r" id="RO3-et-ccM"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="EN" id="IaV-UV-ZBJ">
+                                <connections>
+                                    <action selector="ENbarButton:" destination="sjh-T9-u9r" id="8i1-Wh-sjB"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <segue destination="oly-7Y-plF" kind="show" identifier="GoToTodolist" id="KWT-56-Tdl"/>
@@ -68,7 +79,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="YXU-pq-Wuy" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
-                                <rect key="frame" x="0.0" y="72" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YXU-pq-Wuy" id="iiT-HH-KAW">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -97,73 +108,97 @@
             </objects>
             <point key="canvasLocation" x="1562" y="-4"/>
         </scene>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="gvz-XO-qaZ">
             <objects>
-                <viewController id="LzK-Yc-t4p" sceneMemberID="viewController">
+                <viewController id="LzK-Yc-t4p" customClass="welcomeViewController" customModule="TTOODOlist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yUY-V8-puT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="jwW-Md-a5J">
-                                <rect key="frame" x="20" y="120" width="280" height="378"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="fMc-Bb-Ed8">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="jwW-Md-a5J">
+                                <rect key="frame" x="20" y="100" width="280" height="398"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="choose your language .." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgv-gg-Uxq">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="59.5"/>
-                                        <color key="backgroundColor" red="0.13402324909999999" green="0.70825284720000004" blue="0.2436958551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="62"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8p-uL-oh6">
-                                        <rect key="frame" x="0.0" y="159.5" width="280" height="59"/>
-                                        <color key="backgroundColor" red="0.13300006127096223" green="0.70895681133125033" blue="0.24154516156994146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="العربيه">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختر اللغه .." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZp-kK-5OD">
+                                        <rect key="frame" x="0.0" y="112" width="280" height="62"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8p-uL-oh6">
+                                        <rect key="frame" x="0.0" y="224" width="280" height="62"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="العربيه" backgroundImage="button">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="arbutton:" destination="LzK-Yc-t4p" eventType="touchUpInside" id="OGq-6a-zwF"/>
+                                            <action selector="buttonar:" destination="LzK-Yc-t4p" eventType="touchUpInside" id="ETL-kW-xkz"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vi-If-sAG">
-                                        <rect key="frame" x="0.0" y="318.5" width="280" height="59.5"/>
-                                        <color key="backgroundColor" red="0.13402324914932251" green="0.70825284719467163" blue="0.24369585514068604" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="English">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vi-If-sAG">
+                                        <rect key="frame" x="0.0" y="336" width="280" height="62"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="English" backgroundImage="button">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="buttonen:" destination="LzK-Yc-t4p" eventType="touchUpInside" id="xFh-fN-1aY"/>
+                                            <action selector="buttoneng:" destination="LzK-Yc-t4p" eventType="touchUpInside" id="rW5-2u-Re1"/>
+                                            <action selector="engbutton:" destination="LzK-Yc-t4p" eventType="touchUpInside" id="tCE-h4-JU9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.13402324909999999" green="0.70825284720000004" blue="0.2436958551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.099238313734531403" green="0.45929861068725586" blue="0.10326295346021652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="AiV-9H-gtI"/>
                         <constraints>
+                            <constraint firstItem="AiV-9H-gtI" firstAttribute="bottom" secondItem="fMc-Bb-Ed8" secondAttribute="bottom" id="3HQ-hn-qPb"/>
                             <constraint firstItem="AiV-9H-gtI" firstAttribute="trailing" secondItem="jwW-Md-a5J" secondAttribute="trailing" constant="20" id="3xF-iO-gGo"/>
                             <constraint firstItem="AiV-9H-gtI" firstAttribute="bottom" secondItem="jwW-Md-a5J" secondAttribute="bottom" constant="70" id="7U5-DZ-8rs"/>
                             <constraint firstItem="jwW-Md-a5J" firstAttribute="top" secondItem="AiV-9H-gtI" secondAttribute="top" constant="100" id="9pW-En-9bz"/>
+                            <constraint firstItem="AiV-9H-gtI" firstAttribute="trailing" secondItem="fMc-Bb-Ed8" secondAttribute="trailing" id="EzY-Nl-Loz"/>
+                            <constraint firstItem="fMc-Bb-Ed8" firstAttribute="leading" secondItem="AiV-9H-gtI" secondAttribute="leading" id="sqq-ai-OHo"/>
                             <constraint firstItem="jwW-Md-a5J" firstAttribute="leading" secondItem="AiV-9H-gtI" secondAttribute="leading" constant="20" id="tjj-ag-bvZ"/>
+                            <constraint firstItem="fMc-Bb-Ed8" firstAttribute="top" secondItem="AiV-9H-gtI" secondAttribute="top" id="wh1-nm-mHm"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="AiV-9H-gtI"/>
                     </view>
+                    <connections>
+                        <outlet property="button1" destination="X8p-uL-oh6" id="08N-zP-rpd"/>
+                        <outlet property="button2" destination="1vi-If-sAG" id="Zcg-gh-b2P"/>
+                        <outlet property="view" destination="yUY-V8-puT" id="vky-Qy-iey"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fG-3b-uoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1523" y="-259"/>
+            <point key="canvasLocation" x="-761" y="-612"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zpu-Fi-xSL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q0d-GP-zAh" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navcon" automaticallyAdjustsScrollViewInsets="NO" id="q0d-GP-zAh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="BRg-Rf-v4D">
-                        <rect key="frame" x="0.0" y="20" width="320" height="91"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.99120336771011353" green="0.20799130201339722" blue="0.22359687089920044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.4593980312" green="0.77976018189999996" blue="0.63207477329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.0012005632164968809" green="0.42281105830710664" blue="0.0018627831421976721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Didot-Italic" family="Didot" pointSize="20"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                            <color key="textShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" systemColor="tableCellGroupedBackgroundColor"/>
+                            <color key="textShadowColor" systemColor="darkTextColor"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -173,7 +208,17 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IfV-gh-fXC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-248" y="-4"/>
+            <point key="canvasLocation" x="-309" y="-4"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="2" width="1000" height="1000"/>
+        <image name="button" width="178" height="89"/>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tableCellGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

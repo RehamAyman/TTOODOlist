@@ -8,22 +8,36 @@
 
 import UIKit
 import RealmSwift
+import MOLH
+
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate  , MOLHResetable{
+    func reset() {
+        let rootViewController: UIWindow = ((UIApplication.shared.delegate?.window)!)!
+                let story = UIStoryboard(name: "Main", bundle: nil)
+                rootViewController.rootViewController = story.instantiateViewController(withIdentifier: "navcon")
+    }
+    
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        
        //print(Realm.Configuration.defaultConfiguration.fileURL)
         do {
        _ = try Realm()
         } catch {
             print("error while using realm .. ")
         }
-        
+       
+        MOLH.shared.activate(true)
         return true
+        
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

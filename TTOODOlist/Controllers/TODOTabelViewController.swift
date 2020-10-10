@@ -28,7 +28,7 @@ class TODOTabelViewController: swipeTableViewController {
         
         
          tableView.separatorStyle = .none
-        
+        self.title = NSLocalizedString("TODO LIST", comment: "")
     }
     @IBOutlet weak var searchbar: UISearchBar!
     
@@ -116,8 +116,8 @@ class TODOTabelViewController: swipeTableViewController {
     @IBAction func addbuttonPressed(_ sender: UIBarButtonItem) {
         var textfield = UITextField()
         
-        let alert = UIAlertController(title: "إضافه مهمه جديده ", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title:"تأكيد ", style: .default) { (action) in
+        let alert = UIAlertController(title : NSLocalizedString("Add New Item ", comment: ""), message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title:NSLocalizedString("Submit", comment: ""), style: .default) { (action) in
             // what will happend when we click add button
             if let currentmainItem = self.selectedMainItem {
                 do {
@@ -139,7 +139,7 @@ class TODOTabelViewController: swipeTableViewController {
            
         }
         alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "اسم المهمه ... "
+            alertTextField.placeholder = NSLocalizedString("New Item Name ..  ", comment: "")
             textfield = alertTextField
         }
         

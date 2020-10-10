@@ -8,11 +8,22 @@
 import UIKit
 import RealmSwift
 import ChameleonFramework
+import MOLH
 
 
 
 
 class mainTableViewController: swipeTableViewController {
+    @IBAction func arbarbutton(_ sender: UIBarButtonItem) {
+        MOLH.setLanguageTo("ar")
+        MOLH.reset()
+        
+    }
+    
+    @IBAction func ENbarButton(_ sender: Any) {
+        MOLH.setLanguageTo("en")
+        MOLH.reset()
+    }
     let realm = try! Realm()
     
 //     let ContainerContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -28,6 +39,8 @@ class mainTableViewController: swipeTableViewController {
         
               loadData()
        tableView.separatorStyle = .none
+        
+        self.title = NSLocalizedString("Main List", comment: "")
     }
     
     
@@ -75,20 +88,20 @@ class mainTableViewController: swipeTableViewController {
     @IBAction func addbutton(_ sender: UIBarButtonItem) {
         var textfield = UITextField()
         
-        let alert = UIAlertController(title: "إضافه قائمة مهام جديده ", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title:"تأكيد ", style: .default) { (action) in
+        let alert = UIAlertController(title: NSLocalizedString("Add New Main Item ", comment: ""), message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title:NSLocalizedString("Submit", comment: ""), style: .default) { (action) in
             
             // what will happend when we click add button
             
             let newitem = MainItem()
             newitem.name = textfield.text!
-            newitem.color = UIColor.randomFlat.hexValue()
+            newitem.color = UIColor.randomFlat().hexValue()
             self.saveData(mainitem: newitem)
             
      
         }
         alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "إسم القائمه الجديده"
+            alertTextField.placeholder = NSLocalizedString("New Main Item Main ", comment: "")
             textfield = alertTextField
         }
         
